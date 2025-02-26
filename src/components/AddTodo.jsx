@@ -33,6 +33,7 @@ function AddTodo() {
               id="todoDate"
               type="date"
               value={todoDate}
+              placeholder="dd/mm/yyyy" 
               onChange={(e) => setTodoDate(e.target.value)} 
               onFocus={(e) => e.target.showPicker()} 
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors"
