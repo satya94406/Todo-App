@@ -1,10 +1,10 @@
 function TodoItem({ todoName, todoDate, onDelete }) {
   return (
     <div className="flex flex-row items-center justify-between bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg p-4 mb-4">
-      <div className="flex-1 md:w-1/2 text-gray-800 dark:text-gray-100 font-medium flex-wrap">
+      <div className="flex-1 flex-wrap  md:w-1/2 text-gray-800 dark:text-gray-100 font-medium ">
         {todoName}
       </div>
-      <div className="flex-1  md:w-1/3 text-gray-600 dark:text-gray-300 font-medium ">
+      <div className="flex-1  md:w-1/3 text-gray-600 dark:text-gray-300 font-medium text-center">
         {todoDate}
       </div>
       <div className="mt-2 md:mt-0 ">
