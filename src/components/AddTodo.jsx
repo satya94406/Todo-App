@@ -20,14 +20,12 @@ function AddTodo() {
     return <p>Your browser does not support speech recognition.</p>;
   }
 
-  // Update the value of todoName when the transcript changes and recording is active
   useEffect(() => {
     if (isRecording) {
       setTodoName(transcript);
     }
   }, [transcript, isRecording]);
 
-  // 🔴 Microphone Permission Request Lazy Loaded
   const handleMicrophoneClick = async () => {
     if (!isRecording) {
       try {
