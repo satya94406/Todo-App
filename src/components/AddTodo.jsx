@@ -20,16 +20,25 @@ function AddTodo() {
     return <p>Your browser does not support speech recognition.</p>;
   }
 
+  // Update the value of todoName when the transcript changes and recording is active
   useEffect(() => {
     if (isRecording) {
       setTodoName(transcript);
-
     }
   }, [transcript, isRecording]);
 
-  const handleMicrophoneClick = () => {
+  // 🔴 Microphone Permission Request Lazy Loaded
+  const handleMicrophoneClick = async () => {
     if (!isRecording) {
-      SpeechRecognition.startListening({ continuous: true, language: "en-IN" });
+      try {
+        await navigator.mediaDevices.getUserMedia({ audio: true });
+        console.log("Microphone permission granted.");
+        SpeechRecognition.startListening({ continuous: true, language: "en-IN" });
+      } catch (error) {
+        console.error("Microphone permission denied.", error);
+        alert("Microphone permission is required to use voice input.");
+        return;
+      }
     } else {
       SpeechRecognition.stopListening();
       resetTranscript(); 
